@@ -1,5 +1,6 @@
 --Data Tablespace
 CREATE TABLESPACE PB_Data
+    --Datafile path of database
     DATAFILE 'C:\app\esteb\oradata\BDCURSO\PBdata.dbf'
     SIZE 10M
     REUSE
@@ -9,6 +10,7 @@ CREATE TABLESPACE PB_Data
 
 --Index Tablespace
 CREATE TABLESPACE PB_Ind
+    --Datafile path of database
     DATAFILE 'C:\app\esteb\oradata\BDCURSO\PBInd.dbf'
     SIZE 10M
     REUSE
