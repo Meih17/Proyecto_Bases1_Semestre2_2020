@@ -51,6 +51,13 @@ CREATE TABLE PB.Address
   CityID NUMBER(10) CONSTRAINT fk_address_city FOREIGN KEY (CityID) REFERENCES PB.City(CityID)
 );
 
+--type of id table
+CREATE TABLE PB.TypeOfID
+(
+  IDType NUMBER(10) CONSTRAINT typeofid_idtype_nn NOT NULL, CONSTRAINT pk_typeofid PRIMARY KEY (IDType),
+  Description VARCHAR2(20) CONSTRAINT typeofid_description_nn NOT NULL 
+);
+
 --main table person to store people information
 CREATE TABLE PB.person
 (
