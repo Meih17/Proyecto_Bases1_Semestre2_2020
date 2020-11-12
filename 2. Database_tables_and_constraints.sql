@@ -31,14 +31,14 @@ CREATE TABLE PB.Country
 CREATE TABLE PB.Province
 (
   ProvinceID NUMBER(10) CONSTRAINT province_provinceid_nn NOT NULL, CONSTRAINT pk_province PRIMARY KEY (ProvinceID),
-  ProvinceName VARCHAR2(25) CONSTRAINT province_provincename_nn NOT NULL,
+  ProvinceName VARCHAR2(25) CONSTRAINT province_provincename_nn NOT NULL
 );
 
 --City table from Address
 CREATE TABLE PB.City
 (
   CityID NUMBER(10) CONSTRAINT city_cityid_nn NOT NULL, CONSTRAINT pk_city PRIMARY KEY (CityID),
-  CityName VARCHAR2(25)
+  CityName VARCHAR2(25) CONSTRAINT city_cityname_nn NOT NULL
 );
 
 --Table to store the person Addressess
@@ -46,9 +46,9 @@ CREATE TABLE PB.Address
 (
   AddressID NUMBER(10), CONSTRAINT address_addressid_nn NOT NULL, CONSTRAINT pk_address PRIMARY KEY (AddressID),
   ZIP VARCHAR2(10), CONSTRAINT address_zip_nn NOT NULL
-  CountryID NUMBER(10),
-  ProvinceID NUMBER(10),
-  CityID NUMBER(10)
+  CountryID NUMBER(10) CONSTRAINT fk_address_country FOREIGN KEY (CountryID) REFERENCES PB.Country(CountryID),
+  ProvinceID NUMBER(10) CONSTRAINT fk_address_province FOREIGN KEY (ProvinceID) REFERENCES PB.Province(ProvinceID),
+  CityID NUMBER(10) CONSTRAINT fk_address_city FOREIGN KEY (CityID) REFERENCES PB.City(CityID)
 );
 
 --main table person to store people information
