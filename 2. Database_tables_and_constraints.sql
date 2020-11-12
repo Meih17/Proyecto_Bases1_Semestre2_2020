@@ -1,3 +1,9 @@
+CREATE TABLE PB.phone
+(
+  PhoneNumberID NUMBER(10) CONSTRAINT phone_phonenumberid_nn NOT NULL, CONSTRAINT pk_phone PRIMARY KEY(PhoneNumberID),
+  PhomeNumber NUMBER(10) CONSTRAINT Phone_phonenumber_nn NOT NULL,
+);
+
 CREATE TABLE PB.person
 (
   idnumber NUMBER(15) CONSTRAINT person_idnumber_nn NOT NULL, CONSTRAINT pk_person PRIMARY KEY (idnumber),
