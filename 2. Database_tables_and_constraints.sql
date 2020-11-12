@@ -55,11 +55,11 @@ CREATE TABLE PB.Address
 CREATE TABLE PB.TypeOfID
 (
   IDType NUMBER(10) CONSTRAINT typeofid_idtype_nn NOT NULL, CONSTRAINT pk_typeofid PRIMARY KEY (IDType),
-  Description VARCHAR2(20) CONSTRAINT typeofid_description_nn NOT NULL 
+  Description VARCHAR2(20) CONSTRAINT typeofid_description_nn NOT NULL
 );
 
 --main table person to store people information
-CREATE TABLE PB.person
+CREATE TABLE PB.Person
 (
   idnumber NUMBER(15) CONSTRAINT person_idnumber_nn NOT NULL, CONSTRAINT pk_person PRIMARY KEY (idnumber),
   Name VARCHAR2(20) CONSTRAINT person_name_nn NOT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE PB.person
 );
 
 -- n to n relation table of phone and person
-CREATE TABLE PB.phonexperson
+CREATE TABLE PB.PhonexPerson
 (
   PhoneNumberID NUMBER(10),
   idnumber NUMBER(15),
@@ -82,7 +82,7 @@ CREATE TABLE PB.phonexperson
 );
 
 --n to n relation table of email and person
-CREATE TABLE PB.emailxperson
+CREATE TABLE PB.EmailxPerson
 (
   IDEmail NUMBER(10),
   idnumber NUMBER(15),
