@@ -4,6 +4,13 @@ CREATE TABLE PB.phone
   PhomeNumber NUMBER(10) CONSTRAINT Phone_phonenumber_nn NOT NULL,
 );
 
+CREATE TABLE PB.phonexperson
+(
+  PhoneNumberID NUMBER(10) CONSTRAINT phonexperson_phonenumberid_nn NOT NULL,
+  idnumber NUMBER(15) CONSTRAINT phonexperson_idnumber_nn NOT NULL, CONSTRAINT pk_phonexperson PRIMARY KEY (PhoneNumberID, idnumber),
+  CONSTRAINT fk_personxphoto FOREIGN KEY (PhoneNumberID) REFERENCES PB.Phone(PhoneNumberID, idnumber) 
+);
+
 CREATE TABLE PB.person
 (
   idnumber NUMBER(15) CONSTRAINT person_idnumber_nn NOT NULL, CONSTRAINT pk_person PRIMARY KEY (idnumber),
