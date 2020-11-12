@@ -39,6 +39,15 @@ CREATE TABLE PB.Photo
   PersonPhotoFile VARCHAR2(20) CONSTRAINT photo_personphotofile_nn NOT NULL
 );
 
+CREATE TABLE PB.Address
+(
+  AddressID NUMBER(10), CONSTRAINT address_addressid_nn NOT NULL, CONSTRAINT pk_address PRIMARY KEY (AddressID),
+  ZIP VARCHAR2(10), CONSTRAINT address_zip_nn NOT NULL
+  CountryID NUMBER(10),
+  ProvinceID NUMBER(10),
+  CityID NUMBER(10)
+);
+
 --main table person to store people information
 CREATE TABLE PB.person
 (
