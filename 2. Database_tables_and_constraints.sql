@@ -23,6 +23,7 @@ CREATE TABLE PB.email
   EmailAddress VARCHAR2(25) email_emailaddress_nn NOT NULL
 );
 
+--n to n relation table of email and person
 CREATE TABLE PB.emailxperson
 (
   IDEmail NUMBER(10),
@@ -32,8 +33,7 @@ CREATE TABLE PB.emailxperson
   CONSTRAINT fk_emailxperson_nm FOREIGN KEY (idnumber) REFERENCES PB.person(idnumber)
 );
 
-
-
+--main table person to store people information
 CREATE TABLE PB.person
 (
   idnumber NUMBER(15) CONSTRAINT person_idnumber_nn NOT NULL, CONSTRAINT pk_person PRIMARY KEY (idnumber),
