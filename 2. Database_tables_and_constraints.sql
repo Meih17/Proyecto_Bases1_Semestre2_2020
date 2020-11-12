@@ -12,8 +12,8 @@ CREATE TABLE PB.phonexperson
   PhoneNumberID NUMBER(10),
   idnumber NUMBER(15),
   CONSTRAINT pk_phonexperson PRIMARY KEY (PhoneNumberID, idnumber),
-  CONSTRAINT fk_personxphoto_nn FOREIGN KEY (PhoneNumberID) REFERENCES PB.Phone(PhoneNumberID),
-  CONSTRAINT fk_personxphoto_nm FOREIGN KEY (idnumber) REFERENCES PB.Person(idnumber)
+  CONSTRAINT fk_phonexperson_nn FOREIGN KEY (PhoneNumberID) REFERENCES PB.Phone(PhoneNumberID),
+  CONSTRAINT fk_phonexperson_nm FOREIGN KEY (idnumber) REFERENCES PB.Person(idnumber)
 );
 
 --Table to store the emails addresses
@@ -31,6 +31,12 @@ CREATE TABLE PB.emailxperson
   CONSTRAINT pk_emailxperson PRIMARY KEY (IDEmail, idnumber),
   CONSTRAINT fk_emailxperson_nn FOREIGN KEY (IDEmail) REFERENCES PB.email(IDEmail),
   CONSTRAINT fk_emailxperson_nm FOREIGN KEY (idnumber) REFERENCES PB.person(idnumber)
+);
+
+CREATE TABLE PB.Photo
+(
+  PersonPhotoID number(10) CONSTRAINT photo_personphotoid_nn NOT NULL, CONSTRAINT pk_photo PRIMARY KEY (PersonPhotoID),
+  PersonPhotoFile VARCHAR2(20) CONSTRAINT photo_personphotofile_nn NOT NULL
 );
 
 --main table person to store people information
